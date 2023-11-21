@@ -1,0 +1,19 @@
+{% extends 'task/base.html' %}
+
+{% block title %}
+Обновление работника
+{% endblock %}
+
+{% block content %}
+    <h1>Обновить работника</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.Surname }}<br>
+        {{ form.Name }}<br>
+        {{ form.Middlename }}<br>
+        {{ form.Employed }}<br>
+        {{ form.rank }}<br>
+        <button type="submit" class="btn btn-success"> Обновить </button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

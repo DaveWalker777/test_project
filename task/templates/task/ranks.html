@@ -1,0 +1,20 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+
+    {% if ranks %}
+    {% for elem in ranks %}
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="{% url 'update_rank' elem.id %}" class=" btn btn-outline-danger btn-sm pull-right">Update </a>
+        <a href="{% url 'delete_rank' elem.id %}" class=" btn btn-outline-danger btn-sm pull-right">Delete</a>
+    </div>
+</div>
+<div class="alert alert-warning mt-2">
+            {{ elem.Rank }}
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>Нет записей!</p>
+    {% endif %}
+{% endblock %}

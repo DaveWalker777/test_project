@@ -1,0 +1,25 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+
+    {% if persons %}
+    {% for elem in persons %}
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="{% url 'update_person' elem.id %}" class=" btn btn-outline-danger btn-sm pull-right">Update </a>
+        <a href="{% url 'delete_person' elem.id %}" class=" btn btn-outline-danger btn-sm pull-right">Delete</a>
+    </div>
+</div>
+<div class="alert alert-warning mt-2">
+            {{ elem.Surname }}
+            {{ elem.Name }}
+            {{ elem.Middlename }}
+            <p>{{ elem.rank }}</p>
+            <p>{{ elem.Employed }}</p>
+
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>Нет записей!</p>
+    {% endif %}
+{% endblock %}

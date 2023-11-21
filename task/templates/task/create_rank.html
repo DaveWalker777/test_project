@@ -1,0 +1,15 @@
+{% extends 'task/base.html' %}
+
+{% block title %}
+Создание должности
+{% endblock %}
+
+{% block content %}
+    <h1>Создать должность</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.Rank }}<br>
+        <button type="submit" class="btn btn-success"> Добавить </button>
+        <span>{{ form.errors.as_text }}</span>
+    </form>
+{% endblock %}
